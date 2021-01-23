@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>{{ getTitleTranslation() | translate}}</h1>
+<div mat-dialog-content class="dialog-content-container">
+
+  <mat-slider
+    [(ngModel)]="newLimit"
+    min="0"
+    max="10485760"
+  ></mat-slider>
+
+  <div class="inner-container">
+    <mat-form-field>
+      <input matInput type="number" [(ngModel)]="newLimit">
+    </mat-form-field>
+
+    <span>
+      {{newLimit | bytes: 2}}/s
+    </span>
+  </div>
+</div>
+<div mat-dialog-actions class="dialog-actions-container">
+  <button mat-raised-button (click)="close()">{{'MODALS.GLOBAL_LIMITS.cancel' | translate}}</button>
+  <button mat-raised-button color="accent" (click)="setLimit()"
+          cdkFocusInitial>{{'MODALS.GLOBAL_LIMITS.setLimit' | translate}}</button>
+</div>

@@ -1,0 +1,33 @@
+// THEME
+@import "~@angular/material/theming";
+
+@include mat-core();
+
+// Light Theme
+$angular-primary: mat-palette($mat-indigo);
+$angular-accent: mat-palette($mat-pink);
+$angular-background: map-get($mat-gray, 50);
+$angular-theme: mat-light-theme($angular-primary, $angular-accent);
+
+// Dark Theme
+$angular-dark-primary: mat-palette($mat-gray, 900);
+$angular-dark-accent: mat-palette($mat-pink);
+$angular-dark-warn: mat-palette($mat-deep-orange);
+$angular-dark-background: map-get($mat-gray, 900);
+$angular-dark-theme: mat-dark-theme($angular-dark-primary, $angular-dark-accent, $angular-dark-warn);
+
+@media (prefers-color-scheme: light) {
+  @include angular-material-color($angular-theme);
+
+  body {
+    background-color: $angular-background;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  @include angular-material-color($angular-dark-theme);
+
+  body {
+    background-color: $angular-dark-background;
+  }
+}

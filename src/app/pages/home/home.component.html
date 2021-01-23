@@ -1,0 +1,27 @@
+<div class="home-container">
+  <!-- toolbar -->
+  <app-home-toolbar
+    [enableActions]="selectedTorrentHashes.length > 0"
+    (resumeTorrents)="resumeTorrents()"
+    (pauseTorrents)="pauseTorrents()"
+    (deleteTorrents)="openDeleteDialog()"
+  ></app-home-toolbar>
+
+  <div class="main-content">
+    <!-- torrent-list -->
+    <app-torrent-list
+      [(selectedTorrents)]="selectedTorrentHashes"
+      [(checkedAllTorrents)]="checkedAllTorrents"
+    ></app-torrent-list>
+  </div>
+
+  <!-- statusbar -->
+  <app-home-statusbar>
+
+  </app-home-statusbar>
+
+  <!-- add-torrent-->
+  <button mat-fab color="accent" class="add-torrent-button">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

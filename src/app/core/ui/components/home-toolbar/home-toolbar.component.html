@@ -1,0 +1,33 @@
+<mat-toolbar color="primary" class="toolbar">
+  <!-- menu-button-->
+  <button mat-icon-button (click)="sidenavService.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <!-- title-->
+  <span>rBitTorrent</span>
+
+  <!-- spacer-->
+  <span class="spacer"></span>
+
+  <button
+    mat-icon-button
+    (click)="resumeTorrents.emit()"
+    [disabled]="!enableActions"
+  >
+    <mat-icon>play_arrow</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    (click)="pauseTorrents.emit()"
+    [disabled]="!enableActions"
+  >
+    <mat-icon>pause</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    (click)="deleteTorrents.emit()"
+    [disabled]="!enableActions"
+  >
+    <mat-icon>delete</mat-icon>
+  </button>
+</mat-toolbar>

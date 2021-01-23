@@ -1,0 +1,46 @@
+<mat-toolbar color="primary" class="statusbar">
+
+  <div class="alternate-speed">
+    <button mat-icon-button (click)="toggleAlternateSpeedLimit()">
+      <mat-icon [ngClass]="{'flip': serverState.use_alt_speed_limits}" >speed</mat-icon>
+    </button>
+  </div>
+
+  <span class="divider"></span>
+
+  <div class="dlup">
+    <button mat-icon-button (click)="setDlLimit()">
+      <mat-icon>cloud_download</mat-icon>
+    </button>
+    <div class="dlup-text">
+      <span>{{serverState.dl_info_speed | bytes: decimals}}/s</span>
+      <span *ngIf="serverState.dl_rate_limit > 0">[{{serverState.dl_rate_limit | bytes: decimals}}/s]</span>
+    </div>
+  </div>
+
+  <span class="divider"></span>
+
+  <div class="dlup">
+    <button mat-icon-button (click)="setUpLimit()">
+      <mat-icon>cloud_upload</mat-icon>
+    </button>
+    <div class="dlup-text">
+      <span>{{serverState.up_info_speed | bytes: decimals}}/s</span>
+      <span *ngIf="serverState.up_rate_limit > 0">[{{serverState.up_rate_limit | bytes: decimals}}/s]</span>
+    </div>
+  </div>
+
+  <span class="divider"></span>
+
+  <div class="connection">
+    <mat-icon *ngIf="serverState.connection_status === 'connected'">check_circle</mat-icon>
+    <mat-icon *ngIf="serverState.connection_status === 'firewalled'">warning</mat-icon>
+    <mat-icon *ngIf="serverState.connection_status === 'disconnected'">error</mat-icon>
+  </div>
+
+  <span class="divider"></span>
+
+  <div class="dht">
+    DHT: {{serverState.dht_nodes}}
+  </div>
+</mat-toolbar>

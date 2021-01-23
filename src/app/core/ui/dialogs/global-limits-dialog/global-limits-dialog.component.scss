@@ -1,0 +1,25 @@
+.dialog-content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+
+  .inner-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    mat-form-field {
+      margin-right: 1rem;
+    }
+
+    span {
+      text-align: right;
+      white-space: nowrap;
+    }
+  }
+}
+
+.dialog-actions-container {
+  justify-content: flex-end;
+}

@@ -1,0 +1,17 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .main-content {
+    overflow-y: auto;
+    flex: 1 1 auto;
+    margin: 64px 0;
+  }
+
+  .add-torrent-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+  }
+}

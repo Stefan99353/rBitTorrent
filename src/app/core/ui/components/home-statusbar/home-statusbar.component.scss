@@ -1,0 +1,50 @@
+.statusbar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.divider {
+  height: 80%;
+  margin: 0 1rem;
+  border: 1px solid #424242;
+}
+
+.alternate-speed,
+.dlup,
+.alternate-speed,
+.connection,
+.dht {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flip {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.dlup {
+  mat-icon {
+    margin-right: 1rem;
+  }
+}
+
+.dlup-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 0.9rem;
+  font-weight: lighter;
+
+  span {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.dht {
+  font-size: 0.9rem;
+  font-weight: lighter;
+}

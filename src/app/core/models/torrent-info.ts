@@ -1,0 +1,49 @@
+/* tslint:disable:variable-name no-inferrable-types */
+export class TorrentInfo {
+  [key: string]: any
+
+  added_on: number = 0;
+  amount_left: number = 0;
+  auto_tmm: boolean = false;
+  availability: number = 0;
+  category: string = '';
+  completed: number = 0;
+  completion_on: number = 0;
+  content_path: string = '';
+  dl_limit: number = 0;
+  dlspeed: number = 0;
+  downloaded: number = 0;
+  downloaded_session: number = 0;
+  eta: number = 0;
+  f_l_piece_prio: boolean = false;
+  force_start: boolean = false;
+  hash: string = '';
+  last_activity: number = 0;
+  magnet_uri: string = '';
+  max_ratio: number = 0;
+  max_seeding_time: number = 0;
+  name: string = '';
+  num_complete: number = 0;
+  num_incomplete: number = 0;
+  num_leechs: number = 0;
+  num_seeds: number = 0;
+  priority: number = 0;
+  progress: number = 0;
+  ratio: number = 0;
+  ratio_limit: number = 0;
+  save_path: string = '';
+  seeding_time_limit: number = 0;
+  seen_complete: number = 0;
+  seq_dl: boolean = false;
+  size: number = 0;
+  state: 'error' | 'missingFiles' | 'uploading' | 'pausedUP' | 'queuedUP' | 'stalledUP' | 'checkingUP' | 'forcedUP' | 'allocating' | 'downloading' | 'metaDL' | 'pausedDL' | 'queuedDL' | 'stalledDL' | 'checkingDL' | 'forceDL' | 'checkingResumeData' | 'moving' | 'unknown' = 'unknown';
+  super_seeding: boolean = false;
+  tags: string = '';
+  time_active: number = 0;
+  total_size: number = 0;
+  tracker: string = '';
+  up_limit: number = 0;
+  uploaded: number = 0;
+  uploaded_session: number = 0;
+  upspeed: number = 0;
+}

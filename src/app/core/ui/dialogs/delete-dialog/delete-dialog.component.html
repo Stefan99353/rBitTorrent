@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>{{'MODALS.DELETE.title' | translate}}</h1>
+<div mat-dialog-content class="dialog-content-container">
+  <p *ngIf="data.selectedTorrentHashes.length === 1">{{'MODALS.DELETE.question_single' | translate}}</p>
+  <p *ngIf="data.selectedTorrentHashes.length > 1">
+    {{'MODALS.DELETE.question_multiple' | translate: selectedTorrentCount()}}
+  </p>
+
+  <mat-checkbox [(ngModel)]="deleteFiles">{{'MODALS.DELETE.delete_files' | translate}}</mat-checkbox>
+</div>
+<div mat-dialog-actions class="dialog-actions-container">
+  <button mat-raised-button (click)="close()">{{'MODALS.DELETE.cancel' | translate}}</button>
+  <button mat-raised-button color="accent" (click)="delete()" cdkFocusInitial>{{'MODALS.DELETE.delete' | translate}}</button>
+</div>
