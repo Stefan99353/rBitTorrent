@@ -35,36 +35,37 @@ export class TorrentManagementService {
   }
 
   pause(hashes: string[], pauseAll?: boolean): Observable<void> {
-    let params = new HttpParams();
+    const data = new FormData();
     if (pauseAll) {
-      params = params.set('hashes', 'all');
+      data.set('hashes', 'all');
     } else {
-      params = params.set('hashes', hashes.join('|'));
+      data.set('hashes', hashes.join('|'));
     }
 
-    return this.http.get<void>(this.apiEndpoint + 'pause', {params});
+    return this.http.post<void>(this.apiEndpoint + 'pause', data);
   }
 
   resume(hashes: string[], resumeAll?: boolean): Observable<void> {
-    let params = new HttpParams();
+    const data = new FormData();
     if (resumeAll) {
-      params = params.set('hashes', 'all');
+      data.set('hashes', 'all');
     } else {
-      params = params.set('hashes', hashes.join('|'));
+      data.set('hashes', hashes.join('|'));
     }
 
-    return this.http.get<void>(this.apiEndpoint + 'resume', {params});
+    return this.http.post<void>(this.apiEndpoint + 'resume', data);
   }
 
   delete(hashes: string[], deleteFiles: boolean, deleteAll?: boolean): Observable<void> {
-    let params = new HttpParams()
-      .set('deleteFiles', String(deleteFiles));
+    const data = new FormData();
+    data.set('deleteFiles', String(deleteFiles));
+
     if (deleteAll) {
-      params = params.set('hashes', 'all');
+      data.set('hashes', 'all');
     } else {
-      params = params.set('hashes', hashes.join('|'));
+      data.set('hashes', hashes.join('|'));
     }
 
-    return this.http.get<void>(this.apiEndpoint + 'delete', {params});
+    return this.http.post<void>(this.apiEndpoint + 'delete', data);
   }
 }

@@ -1,5 +1,9 @@
 <div class="component-container">
-  <div class="table-container">
+  <ng-scrollbar
+    class="table-container"
+    [track]="'all'"
+    [visibility]="'hover'"
+  >
     <table mat-table matSort [dataSource]="tableDataSource">
 
       <!--  checkbox-->
@@ -7,18 +11,19 @@
         <th mat-header-cell *matHeaderCellDef>
           <div>
             <mat-checkbox
-              [checked]="checkedAllTorrents"
-              [indeterminate]="someTorrentsChecked()"
-              (change)="toggleAllTorrentsChecked($event.checked)"
+              (change)="$event ? masterToggle() : null"
+              [checked]="selection.hasValue() && isAllSelected()"
+              [indeterminate]="selection.hasValue() && !isAllSelected()"
             >
             </mat-checkbox>
           </div>
         </th>
-        <td mat-cell *matCellDef="let element">
+        <td mat-cell *matCellDef="let row">
           <div>
             <mat-checkbox
-              [checked]="isTorrentChecked(element.hash)"
-              (change)="toggleTorrentChecked(element.hash)"
+              (click)="$event.stopPropagation()"
+              (change)="$event ? toggle(row) : null"
+              [checked]="selection.isSelected(row)"
             >
             </mat-checkbox>
           </div>
@@ -494,7 +499,7 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
     </table>
-  </div>
+  </ng-scrollbar>
 
   <mat-paginator [pageSizeOptions]="pageSizes" showFirstLastButtons></mat-paginator>
 

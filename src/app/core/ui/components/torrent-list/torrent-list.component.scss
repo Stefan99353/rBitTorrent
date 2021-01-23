@@ -14,6 +14,10 @@ td + td {
   }
 }
 
+mat-checkbox {
+  padding-right: 1rem;
+}
+
 .component-container {
   display: flex;
   flex-direction: column;
@@ -24,7 +28,7 @@ td + td {
 .table-container {
   height: 100%;
   max-width: 100%;
-  overflow: auto;
+  //overflow: auto;
 
   table {
     height: 100%;

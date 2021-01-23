@@ -10,8 +10,8 @@
   <div class="main-content">
     <!-- torrent-list -->
     <app-torrent-list
-      [(selectedTorrents)]="selectedTorrentHashes"
-      [(checkedAllTorrents)]="checkedAllTorrents"
+      (selectionChanged)="$event ? selectedTorrentHashes = $event : null"
+      (checkedAllChanged)="$event ? checkedAllTorrents = $event : null"
     ></app-torrent-list>
   </div>
 
@@ -21,7 +21,7 @@
   </app-home-statusbar>
 
   <!-- add-torrent-->
-  <button mat-fab color="accent" class="add-torrent-button">
+  <button mat-fab color="accent" class="add-torrent-button" (click)="addTorrent()">
     <mat-icon>add</mat-icon>
   </button>
 </div>

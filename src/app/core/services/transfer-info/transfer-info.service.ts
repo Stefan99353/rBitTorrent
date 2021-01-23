@@ -23,7 +23,7 @@ export class TransferInfoService {
   }
 
   toggleSpeedLimitsMode(): Observable<void> {
-    return this.http.get<void>(this.apiEndpoint + 'toggleSpeedLimitsMode', {});
+    return this.http.post<void>(this.apiEndpoint + 'toggleSpeedLimitsMode', {});
   }
 
   downloadLimit(): Observable<number> {
@@ -31,10 +31,10 @@ export class TransferInfoService {
   }
 
   setDownloadLimit(limit: number): Observable<void> {
-    const params = new HttpParams()
-      .set('limit', limit.toString());
+    const data = new FormData();
+    data.set('limit', limit.toString());
 
-    return this.http.get<void>(this.apiEndpoint + 'setDownloadLimit', {params});
+    return this.http.post<void>(this.apiEndpoint + 'setDownloadLimit', data);
   }
 
   uploadLimit(): Observable<number> {
@@ -42,16 +42,16 @@ export class TransferInfoService {
   }
 
   setUploadLimit(limit: number): Observable<void> {
-    const params = new HttpParams()
-      .set('limit', limit.toString());
+    const data = new FormData();
+    data.set('limit', limit.toString());
 
-    return this.http.get<void>(this.apiEndpoint + 'setUploadLimit', {params});
+    return this.http.post<void>(this.apiEndpoint + 'setUploadLimit', data);
   }
 
   banPeers(peers: string[]): Observable<void> {
-    const params = new HttpParams()
-      .set('peers', peers.join('|'));
+    const data = new FormData();
+    data.set('peers', peers.join('|'));
 
-    return this.http.get<void>(this.apiEndpoint + 'banPeers', {params});
+    return this.http.post<void>(this.apiEndpoint + 'banPeers', data);
   }
 }

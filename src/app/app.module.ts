@@ -39,6 +39,8 @@ import { HomeStatusbarComponent } from './core/ui/components/home-statusbar/home
 import { GlobalLimitsDialogComponent } from './core/ui/dialogs/global-limits-dialog/global-limits-dialog.component';
 import {MatSliderModule} from '@angular/material/slider';
 import {NgScrollbarModule} from 'ngx-scrollbar';
+import {MatTabsModule} from '@angular/material/tabs';
+import { AddTorrentComponent } from './pages/add-torrent/add-torrent.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -58,7 +60,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     DeleteDialogComponent,
     HomeToolbarComponent,
     HomeStatusbarComponent,
-    GlobalLimitsDialogComponent
+    GlobalLimitsDialogComponent,
+    AddTorrentComponent,
   ],
   imports: [
     BrowserModule,
@@ -92,6 +95,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     MatSlideToggleModule,
     MatListModule,
     MatSliderModule,
+    MatTabsModule,
   ],
   providers: [
     {

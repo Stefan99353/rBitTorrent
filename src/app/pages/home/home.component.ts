@@ -3,6 +3,7 @@ import {TorrentManagementService} from '../../core/services/torrent-management/t
 import {MatDialog} from '@angular/material/dialog';
 import {DeleteDialogComponent, DeleteDialogData} from '../../core/ui/dialogs/delete-dialog/delete-dialog.component';
 import {MainDaemonService} from '../../core/services/main-daemon.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private _: MainDaemonService,
     private torrentManagementService: TorrentManagementService,
-    private dialog: MatDialog) {
+    private dialog: MatDialog,
+    private router: Router) {
   }
 
   ngOnInit(): void {
@@ -36,5 +38,9 @@ export class HomeComponent implements OnInit {
       width: '500px',
       data: {checkedAllTorrents: this.checkedAllTorrents, selectedTorrentHashes: this.selectedTorrentHashes},
     });
+  }
+
+  addTorrent(): void {
+    this.router.navigate(['add'], {skipLocationChange: true});
   }
 }

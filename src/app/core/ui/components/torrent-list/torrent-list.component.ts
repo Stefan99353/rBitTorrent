@@ -8,6 +8,7 @@ import {MatSort} from '@angular/material/sort';
 import {MainDaemonService} from '../../../services/main-daemon.service';
 import {takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
+import {SelectionModel} from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-torrent-list',
@@ -17,11 +18,10 @@ import {Subject} from 'rxjs';
 export class TorrentListComponent implements OnInit, OnDestroy, AfterViewInit {
   private destroyNotifier = new Subject<void>();
 
-  @Input() selectedTorrents: string[] = [];
-  @Output() selectedTorrentsChange = new EventEmitter<string[]>();
+  @Output() selectionChanged = new EventEmitter<string[]>();
+  @Output() checkedAllChanged = new EventEmitter<boolean>();
 
-  @Input() checkedAllTorrents = false;
-  @Output() checkedAllTorrentsChange = new EventEmitter<boolean>();
+  selection = new SelectionModel<TorrentInfo>(true, []);
 
   displayedColumns: string[] = ['name'];
   decimals = 2;
@@ -73,34 +73,30 @@ export class TorrentListComponent implements OnInit, OnDestroy, AfterViewInit {
     document.body.removeChild(element);
   }
 
-  someTorrentsChecked(): boolean {
-    return this.selectedTorrents.length > 0 && !this.checkedAllTorrents;
+  masterToggle(): void {
+    this.isAllSelected() ?
+      this.selection.clear() :
+      this.tableDataSource.data.forEach(row => this.selection.select(row));
+
+    this.emitEvents();
   }
 
-  toggleAllTorrentsChecked(checked: boolean): void {
-    this.checkedAllTorrents = checked;
-    if (checked) {
-      // Add all hashes to selected
-      this.selectedTorrents = this.tableDataSource.data.map(value => value.hash);
-    } else {
-      this.selectedTorrents = [];
-    }
+  toggle(row: any): void {
+    this.selection.toggle(row);
 
-    this.selectedTorrentsChange.emit(this.selectedTorrents);
-    this.checkedAllTorrentsChange.emit(this.checkedAllTorrents);
+    this.emitEvents();
   }
 
-  toggleTorrentChecked(hash: string): void {
-    if (this.isTorrentChecked(hash)) {
-      this.selectedTorrents = this.selectedTorrents.filter(value => value !== hash);
-    } else {
-      this.selectedTorrents.push(hash);
-    }
+  emitEvents(): void {
+    this.checkedAllChanged.emit(this.isAllSelected());
 
-    this.selectedTorrentsChange.emit(this.selectedTorrents);
+    const hashes = this.selection.selected.map(value => value.hash);
+    this.selectionChanged.emit(hashes);
   }
 
-  isTorrentChecked(hash: string): boolean {
-    return !!this.selectedTorrents.find(value => value === hash);
+  isAllSelected(): boolean {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.tableDataSource.data.length;
+    return numSelected === numRows;
   }
 }

@@ -1,5 +1,8 @@
 {
   "PAGE_HOME": {},
+  "PAGE_ADD": {
+    "title": "Add Torrent"
+  },
   "PAGE_LOGIN": {},
   "PAGE_SETTINGS": {},
   "MODALS": {
@@ -16,6 +19,21 @@
       "title_ul": "Global Upload Speed Limit",
       "cancel": "Cancel",
       "setLimit": "Ok"
+    },
+    "ADD_TORRENT": {
+      "title": "Add Torrent",
+      "LINK": {
+        "title": "Magnet Links",
+        "links": "Magnet links or URLs",
+        "links_placeholder": "Enter only one link per line",
+        "autoTmm": "Automatic Torrent Management",
+        "savepath": "Save Location",
+        "cookie": "Cookie",
+        "rename": "Rename Torrent"
+      },
+      "file_title": "Torrent File",
+      "cancel": "Cancel",
+      "addTorrent": "Add"
     }
   },
   "TORRENT_INFO": {
