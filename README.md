@@ -1,5 +1,7 @@
 # rBitTorrent
 
+![Build](https://github.com/Stefan99353/rBitTorrent/workflows/Build/badge.svg?branch=master)
+
 ![Screenshot](https://user-images.githubusercontent.com/36468779/106188346-2732b780-61a7-11eb-8c81-33d81ec6e08c.jpeg)
 
 An alternative Web-UI for qBittorrent.
