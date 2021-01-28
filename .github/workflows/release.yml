@@ -33,7 +33,7 @@ jobs:
       - name: Package release
         run: |
           mkdir ./public
-          cp ./dist/rBitTorrent/* ./public/
+          cp ./dist/rBitTorrent/* ./public/ -r
           zip -r release.zip ./public
       - name: Create release
         id: create_release
