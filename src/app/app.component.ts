@@ -3,6 +3,8 @@ import {TranslateService} from '@ngx-translate/core';
 import {MainDaemonService} from './core/services/main-daemon.service';
 import {SidenavService} from './core/services/sidenav/sidenav.service';
 import {MatSidenav} from '@angular/material/sidenav';
+import {LoginService} from './core/services/login/login.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +16,11 @@ export class AppComponent implements AfterViewInit{
 
   @ViewChild('sidenav') public sidenav?: MatSidenav;
 
-  constructor(translate: TranslateService, private sidenavService: SidenavService) {
+  constructor(
+    translate: TranslateService, private sidenavService: SidenavService,
+    private loginService: LoginService,
+    private router: Router
+  ) {
     translate.setDefaultLang('en');
     translate.use('en');
   }
@@ -23,5 +29,13 @@ export class AppComponent implements AfterViewInit{
     if (this.sidenav instanceof MatSidenav) {
       this.sidenavService.setSidenav(this.sidenav);
     }
+  }
+
+  logout(): void {
+    this.loginService.logout().subscribe();
+  }
+
+  navigate(route: string): void {
+    this.router.navigate([route], {skipLocationChange: true});
   }
 }

@@ -23,7 +23,7 @@ export class TransferInfoService {
   }
 
   toggleSpeedLimitsMode(): Observable<void> {
-    return this.http.post<void>(this.apiEndpoint + 'toggleSpeedLimitsMode', {});
+    return this.http.post<void>(this.apiEndpoint + 'toggleSpeedLimitsMode', null);
   }
 
   downloadLimit(): Observable<number> {

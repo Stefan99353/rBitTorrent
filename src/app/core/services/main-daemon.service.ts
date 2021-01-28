@@ -7,6 +7,7 @@ import {AppConfigService} from './app-config/app-config.service';
 import {Observable, Subject} from 'rxjs';
 import {environment} from '../../../environments/environment';
 import {GlobalTransferInfo} from '../models/global-transfer-info';
+import has = Reflect.has;
 
 export interface MainDataResponse {
   rid: number;
@@ -48,12 +49,9 @@ export class MainDaemonService {
   ) {
     // Get Config
     this.appConfig = this.appConfigService.loadConfig();
-
-    // Do Initial Requests
-    this.initialRequests();
   }
 
-  initialRequests(): void {
+  startSync(): void {
     this.torrentManagementService.info()
       .subscribe(value => {
         this.torrentInfos = value;
@@ -62,6 +60,10 @@ export class MainDaemonService {
         // Start Sync
         this.syncLoop();
       });
+  }
+
+  stopSync(): void {
+    clearInterval(this.syncTimer);
   }
 
   syncLoop(): void {

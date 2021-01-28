@@ -1,10 +1,13 @@
 {
   "PAGE_HOME": {},
-  "PAGE_ADD": {
-    "title": "Add Torrent"
-  },
   "PAGE_LOGIN": {},
-  "PAGE_SETTINGS": {},
+  "PAGE_SETTINGS": {
+    "syncInterval": "Sync Interval",
+    "syncInterval_placeholder": "1500 ms",
+    "decimals": "Decimal Places",
+    "decimals_placeholder": "2",
+    "displayedColumns": "Columns"
+  },
   "MODALS": {
     "DELETE": {
       "title": "Delete?",
@@ -20,20 +23,62 @@
       "cancel": "Cancel",
       "setLimit": "Ok"
     },
-    "ADD_TORRENT": {
-      "title": "Add Torrent",
-      "LINK": {
-        "title": "Magnet Links",
-        "links": "Magnet links or URLs",
-        "links_placeholder": "Enter only one link per line",
-        "autoTmm": "Automatic Torrent Management",
-        "savepath": "Save Location",
-        "cookie": "Cookie",
-        "rename": "Rename Torrent"
-      },
-      "file_title": "Torrent File",
+    "ADD_URL_TORRENTS": {
+      "title": "Add Torrents from URLs or Magnet Links",
       "cancel": "Cancel",
-      "addTorrent": "Add"
+      "add": "Add Torrents",
+      "urls": "Magnet Links and URLs",
+      "urls_placeholder": "Only one link per line",
+      "autoTmm": "Automatic Torrent Management",
+      "savepath": "Save Location",
+      "savepath_placeholder": "/data/torrents/",
+      "cookie": "Cookie",
+      "cookie_placeholder": "",
+      "rename": "Rename Torrent",
+      "rename_placeholder": "",
+      "category": "Category",
+      "paused": "Add in Paused State",
+      "skip_checking": "Skip hash checking",
+      "contentLayout": "Content Layout",
+      "contentLayout_original": "Original",
+      "contentLayout_subfolder": "Create Subfolder",
+      "contentLayout_noSubfolder": "Don't create Subfolder",
+      "sequentialDownload": "Sequential Order",
+      "firstLastPiecePrio": "Prioritize first and last piece",
+      "dlLimit": "Download Limit",
+      "dlLimit_placeholder": "Bytes/s",
+      "upLimit": "Upload Limit",
+      "upLimit_placeholder": "Bytes/s"
+    },
+    "ADD_FILE_TORRENTS": {
+      "title": "Add Torrents from URLs or Magnet Links",
+      "cancel": "Cancel",
+      "add": "Add Torrents",
+      "urls_placeholder": "Only one link per line",
+      "autoTmm": "Automatic Torrent Management",
+      "savepath": "Save Location",
+      "savepath_placeholder": "/data/torrents/",
+      "rename": "Rename Torrent",
+      "rename_placeholder": "",
+      "category": "Category",
+      "paused": "Add in Paused State",
+      "skip_checking": "Skip hash checking",
+      "contentLayout": "Content Layout",
+      "contentLayout_original": "Original",
+      "contentLayout_subfolder": "Create Subfolder",
+      "contentLayout_noSubfolder": "Don't create Subfolder",
+      "sequentialDownload": "Sequential Order",
+      "firstLastPiecePrio": "Prioritize first and last piece",
+      "dlLimit": "Download Limit",
+      "dlLimit_placeholder": "Bytes/s",
+      "upLimit": "Upload Limit",
+      "upLimit_placeholder": "Bytes/s",
+      "FILE": {
+        "text": "Select Torrent Files:",
+        "choose": "Choose Files",
+        "none_selected": "No files selected",
+        "multiple_selected": "{{value}} files selected"
+      }
     }
   },
   "TORRENT_INFO": {

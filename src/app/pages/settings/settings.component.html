@@ -1,1 +1,50 @@
-<p>settings works!</p>
+<div class="settings-container">
+  <!-- toolbar -->
+  <app-settings-toolbar (save)="save()"
+                        [saveActive]="configChanged"
+  ></app-settings-toolbar>
+  <ng-scrollbar class="scrollbar">
+    <div class="main-content">
+
+      <mat-form-field appearance="fill">
+        <mat-label>{{'PAGE_SETTINGS.syncInterval' | translate}}</mat-label>
+        <input matInput
+               [(ngModel)]="appConfig.syncInterval"
+               [placeholder]="'PAGE_SETTINGS.syncInterval_placeholder' | translate"
+               (change)="changed()"
+               [min]="syncIntervalMin"
+               [max]="syncIntervalMax"
+               type="number"
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>{{'PAGE_SETTINGS.decimals' | translate}}</mat-label>
+        <input matInput
+               [(ngModel)]="appConfig.decimals"
+               [placeholder]="'PAGE_SETTINGS.decimals_placeholder' | translate"
+               (change)="changed()"
+               [min]="decimalsMin"
+               [max]="decimalsMax"
+               type="number"
+        >
+      </mat-form-field>
+
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>{{'PAGE_SETTINGS.displayedColumns' | translate}}</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="column-container">
+          <mat-checkbox *ngFor="let column of allColumns"
+                        [ngClass]="{hidden: column.name === 'select'}"
+                        [(ngModel)]="column.show"
+                        (ngModelChange)="buildColumns()">
+            {{'TORRENT_INFO.' + column.name | translate}}
+          </mat-checkbox>
+        </div>
+      </mat-expansion-panel>
+
+    </div>
+  </ng-scrollbar>
+</div>

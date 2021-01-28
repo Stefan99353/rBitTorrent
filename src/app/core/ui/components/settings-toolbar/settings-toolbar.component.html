@@ -1,11 +1,19 @@
 <mat-toolbar color="primary" class="toolbar">
-  <!-- menu-button-->
+  <!-- back-button-->
   <button mat-icon-button (click)="back()">
     <mat-icon>arrow_back</mat-icon>
   </button>
   <!-- title-->
-  <span>Add Torrent</span>
+  <span>Settings</span>
 
   <!-- spacer-->
   <span class="spacer"></span>
+
+  <button
+    mat-icon-button
+    (click)="onSave()"
+    [disabled]="!saveActive"
+  >
+    <mat-icon>save</mat-icon>
+  </button>
 </mat-toolbar>

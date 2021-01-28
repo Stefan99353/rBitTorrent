@@ -1,0 +1,22 @@
+.settings-container {
+  height: calc(100vh - 64px);
+  padding-top: 64px;
+}
+
+.scrollbar {
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  .column-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.hidden {
+  display: none;
+}

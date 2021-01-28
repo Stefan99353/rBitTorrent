@@ -1,0 +1,123 @@
+<h1 mat-dialog-title>{{'MODALS.ADD_FILE_TORRENTS.title' | translate}}</h1>
+<div mat-dialog-content class="dialog-content-container">
+  <ng-scrollbar class="scrollbar" [visibility]="'hover'">
+
+    <form id="file-form" #fileForm="ngForm">
+
+      <!--File Upload-->
+      <mat-card class="file-upload-card">
+        <mat-card-content>
+          <div class="file-upload">
+            <span>{{'MODALS.ADD_FILE_TORRENTS.FILE.text' | translate}}</span>
+
+            <span class="center-span" *ngIf="files.length < 1">{{'MODALS.ADD_FILE_TORRENTS.FILE.none_selected' | translate}}</span>
+            <span class="center-span" *ngIf="files.length === 1">{{files[0].name}}</span>
+            <span class="center-span" *ngIf="files.length > 1">{{'MODALS.ADD_FILE_TORRENTS.FILE.multiple_selected' | translate:{value: files.length} }}</span>
+
+            <button mat-button color="accent" (click)="openFileChooser()">{{'MODALS.ADD_FILE_TORRENTS.FILE.choose' | translate}}</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <input type="file"
+             #fileInput
+             id="file-input"
+             [multiple]="true"
+             accept=".torrent"
+             name="torrents"
+             ngModel
+      />
+
+      <mat-checkbox name="autoTmm"
+                    ngModel
+      >{{'MODALS.ADD_FILE_TORRENTS.autoTmm' | translate}}</mat-checkbox>
+
+      <mat-form-field appearance="fill">
+        <mat-label>{{'MODALS.ADD_FILE_TORRENTS.savepath' | translate}}</mat-label>
+        <!--                TODO: Add default save path-->
+        <input matInput
+               name="savepath"
+               ngModel
+               [placeholder]="'MODALS.ADD_FILE_TORRENTS.savepath_placeholder' | translate"
+               [disabled]="fileForm.value.autoTmm === true"
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>{{'MODALS.ADD_FILE_TORRENTS.rename' | translate}}</mat-label>
+        <input matInput
+               name="rename"
+               ngModel
+               [placeholder]="'MODALS.ADD_FILE_TORRENTS.rename_placeholder' | translate"
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>{{'MODALS.ADD_FILE_TORRENTS.category' | translate}}</mat-label>
+        <mat-select
+          name="category"
+          ngModel
+        >
+          <!--          TODO: Add categories-->
+          <mat-option value="one">First option</mat-option>
+          <mat-option value="two">Second option</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-checkbox name="paused"
+                    ngModel
+      >{{'MODALS.ADD_FILE_TORRENTS.paused' | translate}}</mat-checkbox>
+
+      <mat-checkbox name="skip_checking"
+                    ngModel
+      >{{'MODALS.ADD_FILE_TORRENTS.skip_checking' | translate}}</mat-checkbox>
+
+      <mat-form-field appearance="fill">
+        <mat-label>{{'MODALS.ADD_FILE_TORRENTS.contentLayout' | translate}}</mat-label>
+        <mat-select
+          name="contentLayout"
+          ngModel
+        >
+          <mat-option value="Original">{{'MODALS.ADD_FILE_TORRENTS.contentLayout_original' | translate}}</mat-option>
+          <mat-option value="Subfolder">{{'MODALS.ADD_FILE_TORRENTS.contentLayout_subfolder' | translate}}</mat-option>
+          <mat-option
+            value="NoSubfolder">{{'MODALS.ADD_FILE_TORRENTS.contentLayout_noSubfolder' | translate}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-checkbox name="sequentialDownload"
+                    ngModel
+      >{{'MODALS.ADD_FILE_TORRENTS.sequentialDownload' | translate}}</mat-checkbox>
+
+      <mat-checkbox name="firstLastPiecePrio"
+                    ngModel
+      >{{'MODALS.ADD_FILE_TORRENTS.firstLastPiecePrio' | translate}}</mat-checkbox>
+
+      <mat-form-field appearance="fill">
+        <mat-label>{{'MODALS.ADD_FILE_TORRENTS.dlLimit' | translate}}</mat-label>
+        <input matInput
+               name="dlLimit"
+               type="number"
+               ngModel
+               [placeholder]="'MODALS.ADD_FILE_TORRENTS.dlLimit_placeholder' | translate"
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>{{'MODALS.ADD_FILE_TORRENTS.upLimit' | translate}}</mat-label>
+        <input matInput
+               name="upLimit"
+               type="number"
+               ngModel
+               [placeholder]="'MODALS.ADD_FILE_TORRENTS.upLimit_placeholder' | translate"
+        >
+      </mat-form-field>
+
+    </form>
+
+  </ng-scrollbar>
+</div>
+<div mat-dialog-actions class="dialog-actions-container">
+  <button mat-raised-button (click)="close()">{{'MODALS.ADD_FILE_TORRENTS.cancel' | translate}}</button>
+  <button mat-raised-button color="accent" (click)="add(fileForm)"
+          cdkFocusInitial>{{'MODALS.ADD_FILE_TORRENTS.add' | translate}}</button>
+</div>

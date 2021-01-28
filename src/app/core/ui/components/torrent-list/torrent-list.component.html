@@ -4,11 +4,17 @@
     [track]="'all'"
     [visibility]="'hover'"
   >
-    <table mat-table matSort [dataSource]="tableDataSource">
+    <table mat-table
+           matSort
+           [dataSource]="tableDataSource"
+           cdkDropList
+           cdkDropListOrientation="horizontal"
+           (cdkDropListDropped)="drop($event)"
+    >
 
       <!--  checkbox-->
       <ng-container matColumnDef="select">
-        <th mat-header-cell *matHeaderCellDef>
+        <th mat-header-cell cdkDrag *matHeaderCellDef>
           <div>
             <mat-checkbox
               (change)="$event ? masterToggle() : null"
@@ -32,7 +38,7 @@
 
       <!--  added_on-->
       <ng-container matColumnDef="added_on">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.added_on' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -42,7 +48,7 @@
 
       <!--  amount_left-->
       <ng-container matColumnDef="amount_left">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.amount_left' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -52,7 +58,7 @@
 
       <!--  auto_tmm-->
       <ng-container matColumnDef="auto_tmm">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.auto_tmm' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -65,7 +71,7 @@
 
       <!--  availability-->
       <ng-container matColumnDef="availability">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.availability' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -75,7 +81,7 @@
 
       <!--  category-->
       <ng-container matColumnDef="category">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.category' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -85,7 +91,7 @@
 
       <!--  completed-->
       <ng-container matColumnDef="completed">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.completed' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -95,7 +101,7 @@
 
       <!--  completion_on-->
       <ng-container matColumnDef="completion_on">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.completion_on' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -105,7 +111,7 @@
 
       <!--  content_path-->
       <ng-container matColumnDef="content_path">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.content_path' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -115,7 +121,7 @@
 
       <!--  dl_limit-->
       <ng-container matColumnDef="dl_limit">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.dl_limit' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -125,7 +131,7 @@
 
       <!--  dlspeed-->
       <ng-container matColumnDef="dlspeed">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.dlspeed' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -135,7 +141,7 @@
 
       <!--  downloaded-->
       <ng-container matColumnDef="downloaded">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.downloaded' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -145,7 +151,7 @@
 
       <!--  downloaded_session-->
       <ng-container matColumnDef="downloaded_session">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.downloaded_session' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -155,7 +161,7 @@
 
       <!--  eta-->
       <ng-container matColumnDef="eta">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.eta' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -165,7 +171,7 @@
 
       <!--  f_l_piece_prio-->
       <ng-container matColumnDef="f_l_piece_prio">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.f_l_piece_prio' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -178,7 +184,7 @@
 
       <!--  force_start-->
       <ng-container matColumnDef="force_start">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.force_start' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -191,7 +197,7 @@
 
       <!--  hash-->
       <ng-container matColumnDef="hash">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.hash' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -201,7 +207,7 @@
 
       <!--  last_activity-->
       <ng-container matColumnDef="last_activity">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.last_activity' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -211,7 +217,7 @@
 
       <!--  magnet_uri-->
       <ng-container matColumnDef="magnet_uri">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.magnet_uri' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element" style="cursor: pointer" (click)="copyToClipboard(element.magnet_uri)">
@@ -223,7 +229,7 @@
 
       <!--  max_ratio-->
       <ng-container matColumnDef="max_ratio">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.max_ratio' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -233,7 +239,7 @@
 
       <!--  max_seeding_time-->
       <ng-container matColumnDef="max_seeding_time">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.max_seeding_time' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -243,7 +249,7 @@
 
       <!--  name-->
       <ng-container matColumnDef="name">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.name' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -253,7 +259,7 @@
 
       <!--  num_complete-->
       <ng-container matColumnDef="num_complete">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.num_complete' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -263,7 +269,7 @@
 
       <!--  num_incomplete-->
       <ng-container matColumnDef="num_incomplete">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.num_incomplete' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -273,7 +279,7 @@
 
       <!--  num_leechs-->
       <ng-container matColumnDef="num_leechs">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.num_leechs' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -283,7 +289,7 @@
 
       <!--  num_seeds-->
       <ng-container matColumnDef="num_seeds">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.num_seeds' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -293,7 +299,7 @@
 
       <!--  priority-->
       <ng-container matColumnDef="priority">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.priority' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -303,21 +309,19 @@
 
       <!--  progress-->
       <ng-container matColumnDef="progress">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.progress' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
           <div>
-            <progress [value]="element.progress" [max]="1">
-              {{element.progress * 100 | number: "1.0-" + decimals}} %
-            </progress>
+            <mat-progress-bar mode="determinate" [value]="element.progress * 100"></mat-progress-bar>
           </div>
         </td>
       </ng-container>
 
       <!--  ratio-->
       <ng-container matColumnDef="ratio">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.ratio' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -327,7 +331,7 @@
 
       <!--  ratio_limit-->
       <ng-container matColumnDef="ratio_limit">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.ratio_limit' | translate}}</div>
         </th>
         <td mat-cell
@@ -339,7 +343,7 @@
 
       <!--  save_path-->
       <ng-container matColumnDef="save_path">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.save_path' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -349,7 +353,7 @@
 
       <!--  seeding_time_limit-->
       <ng-container matColumnDef="seeding_time_limit">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.seeding_time_limit' | translate}}</div>
         </th>
         <td mat-cell
@@ -361,7 +365,7 @@
 
       <!--  seen_complete-->
       <ng-container matColumnDef="seen_complete">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.seen_complete' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -371,7 +375,7 @@
 
       <!--  seq_dl-->
       <ng-container matColumnDef="seq_dl">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.seq_dl' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -384,7 +388,7 @@
 
       <!--  size-->
       <ng-container matColumnDef="size">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.size' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -394,7 +398,7 @@
 
       <!--  state-->
       <ng-container matColumnDef="state">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.state' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -404,7 +408,7 @@
 
       <!--  super_seeding-->
       <ng-container matColumnDef="super_seeding">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.super_seeding' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -417,7 +421,7 @@
 
       <!--  tags-->
       <ng-container matColumnDef="tags">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.tags' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -427,7 +431,7 @@
 
       <!--  time_active-->
       <ng-container matColumnDef="time_active">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.time_active' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -437,7 +441,7 @@
 
       <!--  total_size-->
       <ng-container matColumnDef="total_size">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.total_size' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -447,7 +451,7 @@
 
       <!--  tracker-->
       <ng-container matColumnDef="tracker">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.tracker' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -457,7 +461,7 @@
 
       <!--  up_limit-->
       <ng-container matColumnDef="up_limit">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.up_limit' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -467,7 +471,7 @@
 
       <!--  uploaded-->
       <ng-container matColumnDef="uploaded">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.uploaded' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -477,7 +481,7 @@
 
       <!--  uploaded_session-->
       <ng-container matColumnDef="uploaded_session">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.uploaded_session' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
@@ -487,7 +491,7 @@
 
       <!--  upspeed-->
       <ng-container matColumnDef="upspeed">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
           <div>{{'TORRENT_INFO.upspeed' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">

@@ -66,6 +66,10 @@ export class LoginService {
       })
     );
   }
+
+  logout(): Observable<void> {
+    return this.http.post<void>(this.apiEndpoint + 'auth/logout', null);
+  }
 }
 
 export class LoginStorage {

@@ -14,6 +14,13 @@ export class TimePipe implements PipeTransform {
     timeLeft = timeLeft % 60;
     const seconds = timeLeft;
 
-    return `${hours}:${minutes}:${seconds}`;
+    let result = '';
+    result += hours < 10 ? `0${hours}` : hours;
+    result += ':';
+    result += minutes < 10 ? `0${minutes}` : minutes;
+    result += ':';
+    result += seconds < 10 ? `0${seconds}` : seconds;
+
+    return result;
   }
 }

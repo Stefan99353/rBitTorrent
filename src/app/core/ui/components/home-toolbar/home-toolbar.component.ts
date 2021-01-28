@@ -7,7 +7,6 @@ import {SidenavService} from '../../../services/sidenav/sidenav.service';
   styleUrls: ['./home-toolbar.component.scss']
 })
 export class HomeToolbarComponent implements OnInit {
-
   @Input() enableActions = false;
 
   @Output() resumeTorrents = new EventEmitter<void>();

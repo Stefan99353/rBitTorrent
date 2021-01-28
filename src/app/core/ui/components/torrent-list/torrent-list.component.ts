@@ -9,6 +9,7 @@ import {MainDaemonService} from '../../../services/main-daemon.service';
 import {takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {SelectionModel} from '@angular/cdk/collections';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-torrent-list',
@@ -42,8 +43,17 @@ export class TorrentListComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit(): void {
     const appConfig = this.appConfigService.loadConfig();
+
+    this.appConfigService.configSubjectAsObservable()
+      .pipe(takeUntil(this.destroyNotifier))
+      .subscribe(value => {
+      this.displayedColumns = value.displayedColumns;
+      this.decimals = value.decimals;
+      this.pageSizes = value.pageSizes;
+      this.table.renderRows();
+    });
+
     this.displayedColumns = appConfig.displayedColumns;
-    this.displayedColumns.unshift('select');
     this.decimals = appConfig.decimals;
     this.pageSizes = appConfig.pageSizes;
 
@@ -85,6 +95,11 @@ export class TorrentListComponent implements OnInit, OnDestroy, AfterViewInit {
     this.selection.toggle(row);
 
     this.emitEvents();
+  }
+
+  drop(event: CdkDragDrop<string[]>): void {
+    moveItemInArray(this.displayedColumns, event.previousIndex, event.currentIndex);
+    this.appConfigService.setProperty('displayedColumns', this.displayedColumns);
   }
 
   emitEvents(): void {

@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   baseUrl: 'http://localhost:8080/',
   apiUrl: 'api/v2/',
+  webapiVersions: ['2.7'],
 };
 
 /*

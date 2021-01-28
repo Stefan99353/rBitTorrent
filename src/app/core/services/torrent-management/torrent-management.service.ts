@@ -68,4 +68,8 @@ export class TorrentManagementService {
 
     return this.http.post<void>(this.apiEndpoint + 'delete', data);
   }
+
+  add(data: FormData): Observable<void> {
+    return this.http.post<void>(this.apiEndpoint + 'add', data, {responseType: 'text' as 'json'});
+  }
 }

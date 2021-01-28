@@ -1,0 +1,43 @@
+.file-upload-card {
+margin-bottom: 1.2rem;
+
+  .file-upload {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .center-span {
+      flex: 1 0 auto;
+      padding-left: 1rem;
+    }
+  }
+}
+
+#file-input {
+  display: none;
+}
+
+.dialog-content-container {
+  min-height: 300px;
+  max-height: 700px;
+  height: 70vh;
+
+  .scrollbar {
+  }
+}
+
+#file-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  padding: 1rem;
+
+  mat-checkbox {
+    padding-bottom: 1.2rem;
+  }
+}
+
+.dialog-actions-container {
+  justify-content: flex-end;
+}
+

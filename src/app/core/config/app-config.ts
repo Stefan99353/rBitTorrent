@@ -1,4 +1,6 @@
 export class AppConfig {
+  [key: string]: any
+
   displayedColumns: string[];
   decimals: number;
   pageSizes: number[];
@@ -13,6 +15,7 @@ export class AppConfig {
 }
 
 export const ALL_COLUMNS = [
+  'select',
   'added_on',
   'amount_left',
   'auto_tmm',
