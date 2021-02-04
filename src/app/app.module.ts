@@ -48,6 +48,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { SettingsToolbarComponent } from './core/ui/components/settings-toolbar/settings-toolbar.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatMenuModule} from '@angular/material/menu';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -110,6 +111,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     MatSelectModule,
     MatProgressBarModule,
     MatExpansionModule,
+    MatMenuModule,
   ],
   providers: [
     {

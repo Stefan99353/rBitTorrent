@@ -72,4 +72,18 @@ export class TorrentManagementService {
   add(data: FormData): Observable<void> {
     return this.http.post<void>(this.apiEndpoint + 'add', data, {responseType: 'text' as 'json'});
   }
+
+  setForceStart(hashes: string[], value?: boolean, setForceStartAll?: boolean): Observable<void> {
+    const data = new FormData();
+    if (setForceStartAll) {
+      data.set('hashes', 'all');
+    } else {
+      data.set('hashes', hashes.join('|'));
+    }
+
+    const setValue = value || false;
+    data.set('value', String(setValue));
+
+    return this.http.post<void>(this.apiEndpoint + 'setForceStart', data);
+  }
 }

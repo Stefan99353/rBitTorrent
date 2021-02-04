@@ -98,7 +98,7 @@
       "queuedDL": "Queued DL",
       "stalledDL": "Stalled DL",
       "checkingDL": "Checking DL",
-      "forceDL": "Forced DL",
+      "forcedDL": "Forced DL",
       "checkingResumeData": "Checking",
       "moving": "Moving",
       "unknown": "Unknown"
@@ -147,5 +147,11 @@
     "uploaded": "Uploaded",
     "uploaded_session": "Uploaded (Session)",
     "upspeed": "Upload Speed"
+  },
+  "TORRENT_CONTEXT": {
+    "resume": "Resume",
+    "pause": "Pause",
+    "forceResume": "Force Resume",
+    "delete": "Delete"
   }
 }

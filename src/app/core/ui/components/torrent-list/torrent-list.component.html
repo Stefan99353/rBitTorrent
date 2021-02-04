@@ -500,7 +500,7 @@
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (contextmenu)="onContextMenu($event, row)"></tr>
 
     </table>
   </ng-scrollbar>
@@ -508,3 +508,37 @@
   <mat-paginator [pageSizeOptions]="pageSizes" showFirstLastButtons></mat-paginator>
 
 </div>
+
+<div style="visibility: hidden; position: fixed"
+     [style.left]="contextMenuPosition.x"
+     [style.top]="contextMenuPosition.y"
+     [matMenuTriggerFor]="torrentContextMenu">
+</div>
+
+<mat-menu #torrentContextMenu="matMenu">
+  <ng-template matMenuContent let-item="item">
+    <!--    Resume-->
+    <button mat-menu-item (click)="onContextResume(item)">
+      <mat-icon>play_arrow</mat-icon>
+      <span>{{'TORRENT_CONTEXT.resume' | translate}}</span>
+    </button>
+    <!--    Pause-->
+    <button mat-menu-item (click)="onContextPause(item)">
+      <mat-icon>pause</mat-icon>
+      <span>{{'TORRENT_CONTEXT.pause' | translate}}</span>
+    </button>
+    <!--    Force Resume-->
+    <button mat-menu-item (click)="onContextForceStart(item)">
+      <mat-icon>skip_next</mat-icon>
+      <span>{{'TORRENT_CONTEXT.forceResume' | translate}}</span>
+    </button>
+
+    <mat-divider></mat-divider>
+
+    <!--    Delete-->
+    <button mat-menu-item (click)="onContextDelete(item)">
+      <mat-icon>delete</mat-icon>
+      <span>{{'TORRENT_CONTEXT.delete' | translate}}</span>
+    </button>
+  </ng-template>
+</mat-menu>
