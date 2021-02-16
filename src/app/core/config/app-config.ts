@@ -5,12 +5,14 @@ export class AppConfig {
   decimals: number;
   pageSizes: number[];
   syncInterval: number;
+  propertiesSyncInterval: number;
 
   constructor() {
     this.displayedColumns = ALL_COLUMNS;
     this.decimals = 2;
-    this.pageSizes = [5, 10, 25, 50, 100];
+    this.pageSizes = [10, 25, 50, 100];
     this.syncInterval = 1000;
+    this.propertiesSyncInterval = 5000;
   }
 }
 

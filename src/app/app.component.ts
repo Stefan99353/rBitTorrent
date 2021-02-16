@@ -17,7 +17,8 @@ export class AppComponent implements AfterViewInit{
   @ViewChild('sidenav') public sidenav?: MatSidenav;
 
   constructor(
-    translate: TranslateService, private sidenavService: SidenavService,
+    translate: TranslateService,
+    private sidenavService: SidenavService,
     private loginService: LoginService,
     private router: Router
   ) {
@@ -33,9 +34,11 @@ export class AppComponent implements AfterViewInit{
 
   logout(): void {
     this.loginService.logout().subscribe();
+    this.sidenavService.close();
   }
 
   navigate(route: string): void {
     this.router.navigate([route], {skipLocationChange: true});
+    this.sidenavService.close();
   }
 }

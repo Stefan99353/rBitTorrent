@@ -1,18 +1,20 @@
 <div class="home-container">
   <!-- toolbar -->
-  <app-home-toolbar
-    [enableActions]="selectedTorrentHashes.length > 0"
-    (resumeTorrents)="resumeTorrents()"
-    (pauseTorrents)="pauseTorrents()"
-    (deleteTorrents)="openDeleteDialog()"
+  <app-home-toolbar [enableActions]="selectedTorrentHashes.length > 0"
+                    (resumeTorrents)="resumeTorrents()"
+                    (pauseTorrents)="pauseTorrents()"
+                    (deleteTorrents)="openDeleteDialog()"
   ></app-home-toolbar>
 
   <div class="main-content">
     <!-- torrent-list -->
-    <app-torrent-list
-      (selectionChanged)="$event ? selectedTorrentHashes = $event : null"
-      (checkedAllChanged)="$event ? checkedAllTorrents = $event : null"
+    <app-torrent-list (selectionChanged)="selectedTorrentHashes = $event || []"
+                      (checkedAllChanged)="$event ? checkedAllTorrents = $event : null"
     ></app-torrent-list>
+
+    <app-torrent-details *ngIf="selectedTorrentHashes.length === 1"
+                         [torrentHash]="selectedTorrentHashes[0]"
+    ></app-torrent-details>
   </div>
 
   <!-- statusbar -->
@@ -21,9 +23,9 @@
   </app-home-statusbar>
 
   <!-- add-torrent-->
-<!--  <button mat-fab color="accent" class="add-torrent-button" (click)="addTorrent()">-->
-<!--    <mat-icon>add</mat-icon>-->
-<!--  </button>-->
+  <!--  <button mat-fab color="accent" class="add-torrent-button" (click)="addTorrent()">-->
+  <!--    <mat-icon>add</mat-icon>-->
+  <!--  </button>-->
 
   <app-add-speed-dial></app-add-speed-dial>
 </div>

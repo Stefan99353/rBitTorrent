@@ -4,9 +4,20 @@
   height: 100%;
 
   .main-content {
-    overflow-y: auto;
+    //overflow-y: auto;
     flex: 1 1 auto;
     margin: 64px 0;
+
+    display: flex;
+    flex-direction: column;
+
+    app-torrent-list {
+      flex: 1 0 auto;
+    }
+
+    //app-torrent-details {
+    //  height: 40%;
+    //}
   }
 
   .add-torrent-button {

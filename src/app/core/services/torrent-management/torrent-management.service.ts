@@ -3,6 +3,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {TorrentInfo} from '../../models/torrent-info';
 import {environment} from '../../../../environments/environment';
+import {TorrentGenericProperties} from '../../models/torrent-generic-properties';
 
 @Injectable({
   providedIn: 'root'
@@ -85,5 +86,12 @@ export class TorrentManagementService {
     data.set('value', String(setValue));
 
     return this.http.post<void>(this.apiEndpoint + 'setForceStart', data);
+  }
+
+  properties(hash: string): Observable<TorrentGenericProperties> {
+    const params = new HttpParams()
+      .set('hash', hash);
+
+    return this.http.get<TorrentGenericProperties>(this.apiEndpoint + 'properties', {params});
   }
 }

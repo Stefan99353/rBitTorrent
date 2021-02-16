@@ -27,7 +27,7 @@ export interface MainDataResponse {
 export class MainDaemonService {
   private apiEndpoint = environment.baseUrl + environment.apiUrl;
 
-  private appConfig: AppConfig;
+  private appConfig?: AppConfig;
 
   private requestId = 0;
   private syncTimer?: number;
@@ -47,11 +47,12 @@ export class MainDaemonService {
     private appConfigService: AppConfigService,
     private torrentManagementService: TorrentManagementService
   ) {
-    // Get Config
-    this.appConfig = this.appConfigService.loadConfig();
   }
 
   startSync(): void {
+    // Get Config
+    this.appConfig = this.appConfigService.loadConfig();
+
     this.torrentManagementService.info()
       .subscribe(value => {
         this.torrentInfos = value;
@@ -87,7 +88,7 @@ export class MainDaemonService {
           this.updateServerState(value.server_state);
         });
 
-    }, this.appConfig.syncInterval);
+    }, this.appConfig?.syncInterval || 1000);
   }
 
   updateTorrents(torrents?: { [key: string]: any }): void {
@@ -147,7 +148,7 @@ export class MainDaemonService {
   removeTags(): void {
   }
 
-  updateServerState(state?: {[key: string]: any}): void {
+  updateServerState(state?: { [key: string]: any }): void {
     if (state) {
       // Update every key
       Object.keys(state).forEach((key: string) => {

@@ -13,7 +13,7 @@
     >
 
       <!--  checkbox-->
-      <ng-container matColumnDef="select">
+      <ng-container matColumnDef="select" sticky>
         <th mat-header-cell cdkDrag *matHeaderCellDef>
           <div>
             <mat-checkbox
@@ -499,8 +499,12 @@
         </td>
       </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (contextmenu)="onContextMenu($event, row)"></tr>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row
+          *matRowDef="let row; columns: displayedColumns;"
+          (click)="toggle(row)"
+          (contextmenu)="onContextMenu($event, row)"
+      ></tr>
 
     </table>
   </ng-scrollbar>

@@ -1,0 +1,13 @@
+<div class="component-container">
+  <mat-tab-group>
+    <mat-tab [label]="'TORRENT_DETAILS.generalTab' | translate">
+      <ng-scrollbar visibility="hover" class="scrollbar">
+        <app-general-details [torrentHash]="torrentHash"></app-general-details>
+      </ng-scrollbar>
+    </mat-tab>
+    <mat-tab [label]="'TORRENT_DETAILS.trackersTab' | translate">Trackers</mat-tab>
+    <mat-tab [label]="'TORRENT_DETAILS.peersTab' | translate">Peers</mat-tab>
+    <mat-tab [label]="'TORRENT_DETAILS.sourcesTab' | translate">HTTP Sources</mat-tab>
+    <mat-tab [label]="'TORRENT_DETAILS.contentTab' | translate">Content</mat-tab>
+  </mat-tab-group>
+</div>

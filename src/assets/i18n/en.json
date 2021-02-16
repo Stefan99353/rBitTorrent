@@ -153,5 +153,16 @@
     "pause": "Pause",
     "forceResume": "Force Resume",
     "delete": "Delete"
+  },
+  "TORRENT_DETAILS": {
+    "generalTab": "General",
+    "trackersTab": "Trackers",
+    "peersTab": "Peers",
+    "sourcesTab": "HTTP Sources",
+    "contentTab": "Content",
+    "GENERAL": {
+      "transfer": "Transfer",
+      "information": "Information"
+    }
   }
 }
