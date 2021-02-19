@@ -51,6 +51,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatMenuModule} from '@angular/material/menu';
 import { TorrentDetailsComponent } from './core/ui/components/torrent-details/torrent-details.component';
 import { GeneralDetailsComponent } from './core/ui/components/torrent-details/general-details/general-details.component';
+import { TrackerDetailsComponent } from './core/ui/components/torrent-details/tracker-details/tracker-details.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -77,6 +78,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     SettingsToolbarComponent,
     TorrentDetailsComponent,
     GeneralDetailsComponent,
+    TrackerDetailsComponent,
   ],
   imports: [
     BrowserModule,

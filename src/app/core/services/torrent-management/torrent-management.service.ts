@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {TorrentInfo} from '../../models/torrent-info';
 import {environment} from '../../../../environments/environment';
 import {TorrentGenericProperties} from '../../models/torrent-generic-properties';
+import {TrackerInfo} from "../../models/tracker-info";
 
 @Injectable({
   providedIn: 'root'
@@ -93,5 +94,12 @@ export class TorrentManagementService {
       .set('hash', hash);
 
     return this.http.get<TorrentGenericProperties>(this.apiEndpoint + 'properties', {params});
+  }
+
+  trackers(hash: string): Observable<TrackerInfo[]> {
+    const params = new HttpParams()
+      .set('hash', hash);
+
+    return this.http.get<TrackerInfo[]>(this.apiEndpoint + 'trackers', {params});
   }
 }

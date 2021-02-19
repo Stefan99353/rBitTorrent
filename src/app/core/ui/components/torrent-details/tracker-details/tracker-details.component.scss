@@ -1,0 +1,11 @@
+table {
+  width: 100%;
+}
+
+th + th {
+  margin-left: 1rem;
+}
+
+td + td {
+  margin-left: 1rem;
+}

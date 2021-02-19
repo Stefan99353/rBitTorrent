@@ -6,6 +6,7 @@ export class AppConfig {
   pageSizes: number[];
   syncInterval: number;
   propertiesSyncInterval: number;
+  displayedTrackerColumns: string[];
 
   constructor() {
     this.displayedColumns = ALL_COLUMNS;
@@ -13,6 +14,7 @@ export class AppConfig {
     this.pageSizes = [10, 25, 50, 100];
     this.syncInterval = 1000;
     this.propertiesSyncInterval = 5000;
+    this.displayedTrackerColumns = ALL_TRACKER_COLUMNS;
   }
 }
 
@@ -62,4 +64,15 @@ export const ALL_COLUMNS = [
   'uploaded',
   'uploaded_session',
   'upspeed'
+];
+
+export const ALL_TRACKER_COLUMNS = [
+  'tier',
+  'url',
+  'status',
+  'num_peers',
+  'num_seeds',
+  'num_leeches',
+  'num_downloaded',
+  'msg'
 ];

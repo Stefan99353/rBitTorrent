@@ -196,6 +196,23 @@
         "createdOn": "Created On",
         "have": "have"
       }
+    },
+    "TRACKERS": {
+      "url": "URL",
+      "status": "Status",
+      "STATUS": {
+        "0": "Disabled",
+        "1": "Not Contacted",
+        "2": "Working",
+        "3": "Updating",
+        "4": "Not Working"
+      },
+      "tier": "Tier",
+      "num_peers": "Peers",
+      "num_seeds": "Seeds",
+      "num_leeches": "Leeches",
+      "num_downloaded": "Downloaded",
+      "msg": "Message"
     }
   }
 }
