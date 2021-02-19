@@ -8,7 +8,48 @@
     </mat-expansion-panel-header>
 
     <div class="transfer-container">
-      <table></table>
+      <table>
+        <tr>
+          <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.TRANSFER.timeActive' | translate }}</td>
+          <td>{{ torrentProperties.time_elapsed | time }}</td>
+          <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.TRANSFER.eta' | translate }}</td>
+          <td>{{ torrentProperties.eta >= 8640000 ? '∞' : torrentProperties.eta | time}}</td>
+          <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.TRANSFER.connections' | translate }}</td>
+          <td>{{ torrentProperties.nb_connections }} ({{torrentProperties.nb_connections_limit}} {{'TORRENT_DETAILS.GENERAL.TRANSFER.max' | translate}})</td>
+        </tr>
+        <tr>
+          <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.TRANSFER.downloaded' | translate }}</td>
+          <td>{{ torrentProperties.total_downloaded | bytes: decimals }} ({{torrentProperties.total_downloaded_session | bytes: decimals}} {{'TORRENT_DETAILS.GENERAL.TRANSFER.thisSession' | translate}})</td>
+          <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.TRANSFER.uploaded' | translate }}</td>
+          <td>{{ torrentProperties.total_uploaded | bytes: decimals }} ({{torrentProperties.total_uploaded_session | bytes: decimals}} {{'TORRENT_DETAILS.GENERAL.TRANSFER.thisSession' | translate}})</td>
+          <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.TRANSFER.seeds' | translate }}</td>
+          <td>{{ torrentProperties.seeds }} ({{torrentProperties.seeds_total}} {{'TORRENT_DETAILS.GENERAL.TRANSFER.total' | translate}})</td>
+        </tr>
+        <tr>
+          <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.TRANSFER.downloadSpeed' | translate }}</td>
+          <td>{{ torrentProperties.dl_speed | bytes: decimals }}/s ({{torrentProperties.dl_speed_avg | bytes: decimals}}/s {{'TORRENT_DETAILS.GENERAL.TRANSFER.avg' | translate}})</td>
+          <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.TRANSFER.uploadSpeed' | translate }}</td>
+          <td>{{ torrentProperties.up_speed | bytes: decimals }}/s ({{torrentProperties.up_speed_avg | bytes: decimals}}/s {{'TORRENT_DETAILS.GENERAL.TRANSFER.avg' | translate}})</td>
+          <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.TRANSFER.peers' | translate }}</td>
+          <td>{{ torrentProperties.peers }} ({{torrentProperties.peers_total}} {{'TORRENT_DETAILS.GENERAL.TRANSFER.total' | translate}})</td>
+        </tr>
+        <tr>
+          <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.TRANSFER.downloadLimit' | translate }}</td>
+          <td>{{ torrentProperties.dl_limit | bytes: decimals }}/s</td>
+          <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.TRANSFER.uploadLimit' | translate }}</td>
+          <td>{{ torrentProperties.up_limit | bytes: decimals }}/s</td>
+          <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.TRANSFER.wasted' | translate }}</td>
+          <td>{{ torrentProperties.total_wasted | bytes: decimals }}/s</td>
+        </tr>
+        <tr>
+          <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.TRANSFER.shareRatio' | translate }}</td>
+          <td>{{ torrentProperties.share_ratio | number: "1.0-" + decimals}}/s</td>
+          <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.TRANSFER.reannounceIn' | translate }}</td>
+          <td>{{ torrentProperties.reannounce | time }}</td>
+          <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.TRANSFER.lastSeenComplete' | translate }}</td>
+          <td>{{ torrentProperties.last_seen | uepoch | date }}</td>
+        </tr>
+      </table>
     </div>
 
   </mat-expansion-panel>
@@ -20,7 +61,36 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
 
-    <p>Information</p>
+    <table>
+      <tr>
+        <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.INFORMATION.totalSize' | translate }}</td>
+        <td>{{ torrentProperties.total_size | bytes: decimals }}</td>
+        <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.INFORMATION.pieces' | translate }}</td>
+        <td>{{ torrentProperties.pieces_num }} x {{ torrentProperties.piece_size | bytes }} ({{ 'TORRENT_DETAILS.GENERAL.INFORMATION.have' | translate }} {{ torrentProperties.pieces_have }})</td>
+        <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.INFORMATION.createdBy' | translate }}</td>
+        <td>{{ torrentProperties.created_by }}</td>
+      </tr>
+      <tr>
+        <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.INFORMATION.addedOn' | translate }}</td>
+        <td>{{ torrentProperties.addition_date | uepoch | date }}</td>
+        <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.INFORMATION.completedOn' | translate }}</td>
+        <td>{{ torrentProperties.completion_date | uepoch | date }}</td>
+        <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.INFORMATION.createdOn' | translate }}</td>
+        <td>{{ torrentProperties.creation_date | uepoch | date }}</td>
+      </tr>
+      <tr>
+        <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.INFORMATION.torrentHash' | translate }}</td>
+        <td>{{ torrentHash }}</td>
+      </tr>
+      <tr>
+        <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.INFORMATION.savePath' | translate }}</td>
+        <td>{{ torrentProperties.save_path }}</td>
+      </tr>
+      <tr>
+        <td class="o_right">{{ 'TORRENT_DETAILS.GENERAL.INFORMATION.comment' | translate }}</td>
+        <td>{{ torrentProperties.comment }}</td>
+      </tr>
+    </table>
 
   </mat-expansion-panel>
 

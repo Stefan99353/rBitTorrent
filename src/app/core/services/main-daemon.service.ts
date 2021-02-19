@@ -69,7 +69,6 @@ export class MainDaemonService {
 
   syncLoop(): void {
     this.syncTimer = setInterval(() => {
-      console.log('Sync');
 
       const params = new HttpParams()
         .set('rid', this.requestId.toString());

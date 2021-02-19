@@ -12,7 +12,7 @@ export class BytesPipe implements PipeTransform {
 
     const k = 1024;
     const dm = decimals < 0 ? 0 : decimals;
-    const sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+    const sizes = ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
 
     const i = Math.floor(Math.log(value) / Math.log(k));
     return parseFloat((value / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];

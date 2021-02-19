@@ -15,6 +15,7 @@ export class GeneralDetailsComponent implements OnInit, OnDestroy {
 
   private timer?: number;
   appConfig: AppConfig;
+  decimals = 2;
   torrentProperties: TorrentGenericProperties = new TorrentGenericProperties();
 
   constructor(
@@ -22,6 +23,7 @@ export class GeneralDetailsComponent implements OnInit, OnDestroy {
     private torrentManagementService: TorrentManagementService
   ) {
     this.appConfig = this.appConfigService.loadConfig();
+    this.decimals = this.appConfig.decimals;
   }
 
   ngOnInit(): void {

@@ -1,3 +1,24 @@
 mat-expansion-panel {
   margin: 0.5rem;
 }
+
+.o_right {
+  text-align: right;
+}
+
+.o_left {
+  text-align: left;
+}
+
+//table, tr, td {
+//  border: 1px solid black;
+//}
+
+td {
+  padding: 0 0.5rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}

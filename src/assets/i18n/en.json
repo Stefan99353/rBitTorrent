@@ -162,7 +162,40 @@
     "contentTab": "Content",
     "GENERAL": {
       "transfer": "Transfer",
-      "information": "Information"
+      "information": "Information",
+      "TRANSFER": {
+        "timeActive": "Time Active",
+        "downloaded": "Downloaded",
+        "downloadSpeed": "Download Speed",
+        "downloadLimit": "Download Limit",
+        "shareRatio": "Share Ratio",
+        "eta": "ETA",
+        "uploaded": "Uploaded",
+        "uploadSpeed": "Upload Speed",
+        "uploadLimit": "Upload Limit",
+        "reannounceIn": "Reannounce In",
+        "connections": "Connections",
+        "seeds": "Seeds",
+        "peers": "Peers",
+        "wasted": "Wasted",
+        "lastSeenComplete": "Last Seen Complete",
+        "thisSession": "this session",
+        "avg": "avg.",
+        "max": "max",
+        "total": "total"
+      },
+      "INFORMATION": {
+        "totalSize": "Total Size",
+        "addedOn": "Added On",
+        "torrentHash": "Torrent Hash",
+        "savePath": "Save Path",
+        "comment": "Comment",
+        "pieces": "Pieces",
+        "completedOn": "Completed On",
+        "createdBy": "Created By",
+        "createdOn": "Created On",
+        "have": "have"
+      }
     }
   }
 }
