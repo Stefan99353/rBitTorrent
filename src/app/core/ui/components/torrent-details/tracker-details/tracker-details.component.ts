@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {AppConfig} from '../../../../config/app-config';
 import {TrackerInfo} from '../../../../models/tracker-info';
 import {AppConfigService} from '../../../../services/app-config/app-config.service';
@@ -11,7 +11,7 @@ import {MatSort} from '@angular/material/sort';
   templateUrl: './tracker-details.component.html',
   styleUrls: ['./tracker-details.component.scss']
 })
-export class TrackerDetailsComponent implements OnInit, AfterViewInit {
+export class TrackerDetailsComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @Input() torrentHash!: string;
 
@@ -59,5 +59,9 @@ export class TrackerDetailsComponent implements OnInit, AfterViewInit {
           console.error('Error while getting trackers!');
           clearInterval(this.timer);
         });
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.timer);
   }
 }
