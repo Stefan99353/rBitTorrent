@@ -1,0 +1,29 @@
+table {
+  width: 100%;
+}
+
+tr.mat-row {
+  height: 2rem;
+}
+
+th, td {
+  div {
+    white-space: nowrap;
+  }
+}
+
+th + th {
+  div {
+    margin-left: 1rem;
+  }
+}
+
+td + td {
+  div {
+    margin-left: 1rem;
+  }
+}
+
+.right {
+  text-align: right;
+}

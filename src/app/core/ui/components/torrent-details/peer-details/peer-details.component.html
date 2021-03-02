@@ -1,0 +1,131 @@
+<table mat-table matSort [dataSource]="tableDataSource">
+
+  <ng-container matColumnDef="client">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      <div>{{ 'TORRENT_DETAILS.PEERS.client' | translate }}</div>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <div>{{ element.client }}</div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="connection">+
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      <div>{{ 'TORRENT_DETAILS.PEERS.connection' | translate }}</div>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <div>{{ element.connection }}</div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="country">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      <div>{{ 'TORRENT_DETAILS.PEERS.country' | translate }}</div>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <div class="f32"><span [ngClass]="'flag ' + element.country_code"></span></div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="dl_speed">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      <div>{{ 'TORRENT_DETAILS.PEERS.dl_speed' | translate }}</div>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <div class="mono right">{{ element.dl_speed | bytes: decimals}}/s</div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="downloaded">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      <div>{{ 'TORRENT_DETAILS.PEERS.downloaded' | translate }}</div>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <div class="mono right">{{ element.downloaded | bytes: decimals }}</div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="files">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      <div>{{ 'TORRENT_DETAILS.PEERS.files' | translate }}</div>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <div>{{ element.files }}</div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="flags">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      <div>{{ 'TORRENT_DETAILS.PEERS.flags' | translate }}</div>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <div class="mono">{{ element.flags }}</div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="flags_desc">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      <div>{{ 'TORRENT_DETAILS.PEERS.flags_desc' | translate }}</div>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <div>{{ element.flags_desc }}</div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="ip">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      <div>{{ 'TORRENT_DETAILS.PEERS.ip' | translate }}</div>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <div class="mono">{{ element.ip }}</div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="port">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      <div>{{ 'TORRENT_DETAILS.PEERS.port' | translate }}</div>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <div class="mono right">{{ element.port }}</div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="progress">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      <div>{{ 'TORRENT_DETAILS.PEERS.progress' | translate }}</div>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <div class="mono right">{{ element.progress | percent: '.1' }}</div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="relevance">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      <div>{{ 'TORRENT_DETAILS.PEERS.relevance' | translate }}</div>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <div class="mono right">{{ element.relevance | percent: '.1' }}</div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="up_speed">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      <div>{{ 'TORRENT_DETAILS.PEERS.up_speed' | translate }}</div>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <div class="mono right">{{ element.up_speed | bytes: decimals }}/s</div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="uploaded">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      <div>{{ 'TORRENT_DETAILS.PEERS.uploaded' | translate }}</div>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <div class="mono right">{{ element.uploaded | bytes: decimals }}</div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
