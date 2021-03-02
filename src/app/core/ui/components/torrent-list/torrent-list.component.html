@@ -52,7 +52,7 @@
           <div>{{'TORRENT_INFO.amount_left' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
-          <div>{{element.amount_left | bytes: decimals}}</div>
+          <div class="mono right">{{element.amount_left | bytes: decimals}}</div>
         </td>
       </ng-container>
 
@@ -75,7 +75,7 @@
           <div>{{'TORRENT_INFO.availability' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
-          <div>{{element.availability | number: '1.0-' + decimals}}</div>
+          <div class="mono right">{{element.availability | number: '1.0-' + decimals}}</div>
         </td>
       </ng-container>
 
@@ -95,7 +95,7 @@
           <div>{{'TORRENT_INFO.completed' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
-          <div>{{element.completed | bytes: decimals}}</div>
+          <div class="mono right">{{element.completed | bytes: decimals}}</div>
         </td>
       </ng-container>
 
@@ -115,7 +115,7 @@
           <div>{{'TORRENT_INFO.content_path' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
-          <div>{{element.content_path}}</div>
+          <div class="mono">{{element.content_path}}</div>
         </td>
       </ng-container>
 
@@ -125,7 +125,7 @@
           <div>{{'TORRENT_INFO.dl_limit' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
-          <div>{{element.dl_limit | bytes: decimals}}/s</div>
+          <div class="mono right">{{element.dl_limit | bytes: decimals}}/s</div>
         </td>
       </ng-container>
 
@@ -135,7 +135,7 @@
           <div>{{'TORRENT_INFO.dlspeed' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
-          <div>{{element.dlspeed | bytes: decimals}}/s</div>
+          <div class="mono right">{{element.dlspeed | bytes: decimals}}/s</div>
         </td>
       </ng-container>
 
@@ -145,7 +145,7 @@
           <div>{{'TORRENT_INFO.downloaded' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
-          <div>{{element.downloaded | bytes: decimals}}</div>
+          <div class="mono right">{{element.downloaded | bytes: decimals}}</div>
         </td>
       </ng-container>
 
@@ -155,7 +155,7 @@
           <div>{{'TORRENT_INFO.downloaded_session' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
-          <div>{{element.downloaded_session | bytes: decimals}}</div>
+          <div class="mono right">{{element.downloaded_session | bytes: decimals}}</div>
         </td>
       </ng-container>
 
@@ -201,7 +201,7 @@
           <div>{{'TORRENT_INFO.hash' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
-          <div>{{element.hash}}</div>
+          <div class="mono">{{element.hash}}</div>
         </td>
       </ng-container>
 
@@ -233,7 +233,7 @@
           <div>{{'TORRENT_INFO.max_ratio' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
-          <div>{{element.max_ratio | number: "1.0-" + decimals}}</div>
+          <div class="mono right">{{element.max_ratio | number: "1.0-" + decimals}}</div>
         </td>
       </ng-container>
 
@@ -257,43 +257,23 @@
         </td>
       </ng-container>
 
-      <!--  num_complete-->
-      <ng-container matColumnDef="num_complete">
+      <!--  seeds-->
+      <ng-container matColumnDef="seeds">
         <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
-          <div>{{'TORRENT_INFO.num_complete' | translate}}</div>
+          <div>{{'TORRENT_INFO.seeds' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
-          <div>{{element.num_complete}}</div>
+          <div class="mono right">{{element.num_seeds}} ({{element.num_complete}})</div>
         </td>
       </ng-container>
 
-      <!--  num_incomplete-->
-      <ng-container matColumnDef="num_incomplete">
+      <!--  peers-->
+      <ng-container matColumnDef="peers">
         <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
-          <div>{{'TORRENT_INFO.num_incomplete' | translate}}</div>
+          <div>{{'TORRENT_INFO.peers' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
-          <div>{{element.num_incomplete}}</div>
-        </td>
-      </ng-container>
-
-      <!--  num_leechs-->
-      <ng-container matColumnDef="num_leechs">
-        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
-          <div>{{'TORRENT_INFO.num_leechs' | translate}}</div>
-        </th>
-        <td mat-cell *matCellDef="let element">
-          <div>{{element.num_leechs}}</div>
-        </td>
-      </ng-container>
-
-      <!--  num_seeds-->
-      <ng-container matColumnDef="num_seeds">
-        <th mat-header-cell cdkDrag mat-sort-header *matHeaderCellDef>
-          <div>{{'TORRENT_INFO.num_seeds' | translate}}</div>
-        </th>
-        <td mat-cell *matCellDef="let element">
-          <div>{{element.num_seeds}}</div>
+          <div class="mono right">{{element.num_leechs}} ({{element.num_incomplete}})</div>
         </td>
       </ng-container>
 
@@ -303,7 +283,7 @@
           <div>{{'TORRENT_INFO.priority' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
-          <div>{{element.priority}}</div>
+          <div class="mono right">{{element.priority}}</div>
         </td>
       </ng-container>
 
@@ -315,6 +295,7 @@
         <td mat-cell *matCellDef="let element">
           <div>
             <mat-progress-bar mode="determinate" [value]="element.progress * 100"></mat-progress-bar>
+            <div class="progress mono">{{element.progress | percent: '.1'}}</div>
           </div>
         </td>
       </ng-container>
@@ -325,7 +306,7 @@
           <div>{{'TORRENT_INFO.ratio' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
-          <div>{{element.ratio | number: "1.0-" + decimals}}</div>
+          <div class="mono right">{{element.ratio | number: "1.0-" + decimals}}</div>
         </td>
       </ng-container>
 
@@ -336,7 +317,7 @@
         </th>
         <td mat-cell
             *matCellDef="let element">
-          <div>
+          <div class="mono right">
             {{element.ratio_limit < 0 ? '∞' : element.ratio_limit | number: "1.0-" + decimals}}</div>
         </td>
       </ng-container>
@@ -347,7 +328,7 @@
           <div>{{'TORRENT_INFO.save_path' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
-          <div>{{element.save_path}}</div>
+          <div class="mono">{{element.save_path}}</div>
         </td>
       </ng-container>
 
@@ -392,7 +373,7 @@
           <div>{{'TORRENT_INFO.size' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
-          <div>{{element.size | bytes: decimals}}</div>
+          <div class="mono right">{{element.size | bytes: decimals}}</div>
         </td>
       </ng-container>
 
@@ -445,7 +426,7 @@
           <div>{{'TORRENT_INFO.total_size' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
-          <div>{{element.total_size | bytes: decimals}}</div>
+          <div class="mono right">{{element.total_size | bytes: decimals}}</div>
         </td>
       </ng-container>
 
@@ -465,7 +446,7 @@
           <div>{{'TORRENT_INFO.up_limit' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
-          <div>{{element.up_limit | bytes: decimals}}/s</div>
+          <div class="mono right">{{element.up_limit | bytes: decimals}}/s</div>
         </td>
       </ng-container>
 
@@ -475,7 +456,7 @@
           <div>{{'TORRENT_INFO.uploaded' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
-          <div>{{element.uploaded | bytes: decimals}}</div>
+          <div class="mono right">{{element.uploaded | bytes: decimals}}</div>
         </td>
       </ng-container>
 
@@ -485,7 +466,7 @@
           <div>{{'TORRENT_INFO.uploaded_session' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
-          <div>{{element.uploaded_session | bytes: decimals}}</div>
+          <div class="mono right">{{element.uploaded_session | bytes: decimals}}</div>
         </td>
       </ng-container>
 
@@ -495,7 +476,7 @@
           <div>{{'TORRENT_INFO.upspeed' | translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
-          <div>{{element.upspeed | bytes: decimals}}/s</div>
+          <div class="mono right">{{element.upspeed | bytes: decimals}}/s</div>
         </td>
       </ng-container>
 

@@ -2,10 +2,28 @@ table {
   width: 100%;
 }
 
+tr.mat-row {
+  height: 2rem;
+}
+
+th, td {
+  div {
+    white-space: nowrap;
+  }
+}
+
 th + th {
-  margin-left: 1rem;
+  div {
+    margin-left: 1rem;
+  }
 }
 
 td + td {
-  margin-left: 1rem;
+  div {
+    margin-left: 1rem;
+  }
+}
+
+.right {
+  text-align: right;
 }

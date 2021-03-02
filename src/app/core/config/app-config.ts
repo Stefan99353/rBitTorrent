@@ -7,14 +7,16 @@ export class AppConfig {
   syncInterval: number;
   propertiesSyncInterval: number;
   displayedTrackerColumns: string[];
+  displayedPeerColumns: string[];
 
   constructor() {
-    this.displayedColumns = ALL_COLUMNS;
+    this.displayedColumns = DEFAULT_COLUMNS;
     this.decimals = 2;
     this.pageSizes = [10, 25, 50, 100];
     this.syncInterval = 1000;
     this.propertiesSyncInterval = 5000;
     this.displayedTrackerColumns = ALL_TRACKER_COLUMNS;
+    this.displayedPeerColumns = ALL_PEER_COLUMNS;
   }
 }
 
@@ -41,10 +43,6 @@ export const ALL_COLUMNS = [
   'max_ratio',
   'max_seeding_time',
   'name',
-  'num_complete',
-  'num_incomplete',
-  'num_leechs',
-  'num_seeds',
   'priority',
   'progress',
   'ratio',
@@ -65,6 +63,22 @@ export const ALL_COLUMNS = [
   'uploaded_session',
   'upspeed'
 ];
+export const DEFAULT_COLUMNS = [
+  'select',
+  'name',
+  'size',
+  'progress',
+  'state',
+  'seeds',
+  'peers',
+  'dlspeed',
+  'upspeed',
+  'eta',
+  'ratio',
+  'category',
+  'tags',
+  'availability'
+];
 
 export const ALL_TRACKER_COLUMNS = [
   'tier',
@@ -75,4 +89,22 @@ export const ALL_TRACKER_COLUMNS = [
   'num_leeches',
   'num_downloaded',
   'msg'
+];
+
+export const ALL_PEER_COLUMNS = [
+  'country',
+  'ip',
+  'port',
+  'connection',
+  'flags',
+  'client',
+  'progress',
+  'dl_speed',
+  'up_speed',
+  'downloaded',
+  'uploaded',
+  'relevance',
+  'files',
+
+  // 'flags_desc',
 ];

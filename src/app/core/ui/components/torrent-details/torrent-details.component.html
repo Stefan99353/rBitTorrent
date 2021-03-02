@@ -1,26 +1,37 @@
 <div class="component-container">
   <mat-tab-group>
     <mat-tab [label]="'TORRENT_DETAILS.generalTab' | translate">
-      <ng-scrollbar visibility="hover" class="scrollbar">
-        <app-general-details [torrentHash]="torrentHash"></app-general-details>
-      </ng-scrollbar>
+      <ng-template matTabContent>
+        <ng-scrollbar visibility="hover" class="scrollbar">
+          <app-general-details [torrentHash]="torrentHash"></app-general-details>
+        </ng-scrollbar>
+      </ng-template>
     </mat-tab>
     <mat-tab [label]="'TORRENT_DETAILS.trackersTab' | translate">
-      <ng-scrollbar visibility="hover" class="scrollbar">
+      <ng-template matTabContent>
+      <ng-scrollbar track="all" visibility="hover" class="scrollbar">
         <app-tracker-details [torrentHash]="torrentHash"></app-tracker-details>
       </ng-scrollbar>
+      </ng-template>
     </mat-tab>
     <mat-tab [label]="'TORRENT_DETAILS.peersTab' | translate">
-      <ng-scrollbar visibility="hover" class="scrollbar">
+      <ng-template matTabContent>
+      <ng-scrollbar track="all" visibility="hover" class="scrollbar">
+        <app-peer-details [torrentHash]="torrentHash"></app-peer-details>
       </ng-scrollbar>
+      </ng-template>
     </mat-tab>
     <mat-tab [label]="'TORRENT_DETAILS.sourcesTab' | translate">
+      <ng-template matTabContent>
       <ng-scrollbar visibility="hover" class="scrollbar">
       </ng-scrollbar>
+      </ng-template>
     </mat-tab>
     <mat-tab [label]="'TORRENT_DETAILS.contentTab' | translate">
+      <ng-template matTabContent>
       <ng-scrollbar visibility="hover" class="scrollbar">
       </ng-scrollbar>
+      </ng-template>
     </mat-tab>
   </mat-tab-group>
 </div>

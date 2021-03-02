@@ -46,12 +46,13 @@ import {AddFileTorrentsDialogComponent} from './core/ui/dialogs/add-file-torrent
 import {MatSelectModule} from '@angular/material/select';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-import { SettingsToolbarComponent } from './core/ui/components/settings-toolbar/settings-toolbar.component';
+import {SettingsToolbarComponent} from './core/ui/components/settings-toolbar/settings-toolbar.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatMenuModule} from '@angular/material/menu';
-import { TorrentDetailsComponent } from './core/ui/components/torrent-details/torrent-details.component';
-import { GeneralDetailsComponent } from './core/ui/components/torrent-details/general-details/general-details.component';
-import { TrackerDetailsComponent } from './core/ui/components/torrent-details/tracker-details/tracker-details.component';
+import {TorrentDetailsComponent} from './core/ui/components/torrent-details/torrent-details.component';
+import {GeneralDetailsComponent} from './core/ui/components/torrent-details/general-details/general-details.component';
+import {TrackerDetailsComponent} from './core/ui/components/torrent-details/tracker-details/tracker-details.component';
+import {PeerDetailsComponent} from './core/ui/components/torrent-details/peer-details/peer-details.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -79,6 +80,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     TorrentDetailsComponent,
     GeneralDetailsComponent,
     TrackerDetailsComponent,
+    PeerDetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -146,7 +146,9 @@
     "up_limit": "Upload Limit",
     "uploaded": "Uploaded",
     "uploaded_session": "Uploaded (Session)",
-    "upspeed": "Upload Speed"
+    "upspeed": "Upload Speed",
+    "seeds": "Seeds",
+    "peers": "Peers"
   },
   "TORRENT_CONTEXT": {
     "resume": "Resume",
@@ -213,6 +215,23 @@
       "num_leeches": "Leeches",
       "num_downloaded": "Downloaded",
       "msg": "Message"
+    },
+    "PEERS" : {
+      "client": "Client",
+      "connection": "Connection",
+      "country": "Country",
+      "country_code": "Country Code",
+      "dl_speed": "Download Speed",
+      "downloaded": "Downloaded",
+      "files": "Files",
+      "flags": "Flags",
+      "flags_desc": "Flag Description",
+      "ip": "IP",
+      "port": "Port",
+      "progress": "Progress",
+      "relevance": "Relevance",
+      "up_speed": "Upload Speed",
+      "uploaded": "Uploaded"
     }
   }
 }
